@@ -23,7 +23,7 @@ async def checker(target):
 async def connector(target):
     print(f"Merubah ip lokal agar bisa diakses publik")
     token, port, proto = config()
-    publik = await ngrok.connect(
+    publik = await ngrok.forward(
         addr=f"{target}:{port}",
         authtoken=token,
         proto=proto
